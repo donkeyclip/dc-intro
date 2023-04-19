@@ -1,11 +1,18 @@
-import { CSSEffect,Combo } from "@donkeyclip/motorcortex";
+import { CSSEffect, Combo } from "@donkeyclip/motorcortex";
 
-export const left = ( value,selector, duration, easing = "linear") =>
+export const left = (
+  value,
+  selector,
+  duration,
+  easing = "linear",
+  initialValues
+) =>
   new CSSEffect(
     {
       animatedAttrs: {
-       left:value
+        left: value,
       },
+      initialValues,
     },
     {
       selector,
@@ -14,7 +21,7 @@ export const left = ( value,selector, duration, easing = "linear") =>
     }
   );
 
-export const opacity = (value,selector, duration, easing = "linear") =>
+export const opacity = (value, selector, duration, easing = "linear") =>
   new CSSEffect(
     {
       animatedAttrs: {
@@ -28,25 +35,14 @@ export const opacity = (value,selector, duration, easing = "linear") =>
     }
   );
 
-  export const width = (value,selector, duration, easing = "linear") =>
+export const width = (value, selector, duration, easing = "linear") =>
   new CSSEffect(
     {
       animatedAttrs: {
         width: value,
       },
-    },
-    {
-      selector,
-      duration,
-      easing,
-    }
-  );
-
-  export const color = (value,selector, duration, easing = "linear") =>
-  new CSSEffect(
-    {
-      animatedAttrs: {
-        backgroundImage: value,
+      initialValues: {
+        width: "0px",
       },
     },
     {
@@ -56,7 +52,25 @@ export const opacity = (value,selector, duration, easing = "linear") =>
     }
   );
 
-  export const comboBl = (selector) =>
+export const color = (value, selector, duration, easing = "linear") =>
+  new CSSEffect(
+    {
+      animatedAttrs: {
+        backgroundImage: value,
+      },
+      initialValues: {
+        backgroundImage:
+          "linear-gradient(90deg, rgba(52,200,255,1) 0%,  rgba(52,200,255,1) 100%)",
+      },
+    },
+    {
+      selector,
+      duration,
+      easing,
+    }
+  );
+
+export const comboBl = (selector) =>
   new Combo(
     {
       incidents: [
@@ -65,37 +79,39 @@ export const opacity = (value,selector, duration, easing = "linear") =>
           attrs: {
             animatedAttrs: {
               top: "45%",
-              left: "50%"
-            }
+              left: "50%",
+            },
+            initialValues: {
+              top: "50%",
+            },
           },
           props: {
             duration: 200,
           },
-          position: 0
+          position: 0,
         },
         {
           incidentClass: CSSEffect,
           attrs: {
             animatedAttrs: {
               top: "50%",
-              left: "55%"
-            }
+              left: "55%",
+            },
           },
           props: {
             duration: 200,
           },
-          position: 200
+          position: 200,
         },
-       
-      ]
+      ],
     },
     {
       selector,
-      easing:"easeOutQuart",
+      easing: "easeOutQuart",
     }
   );
 
-  export const comboBr = (selector) =>
+export const comboBr = (selector) =>
   new Combo(
     {
       incidents: [
@@ -104,32 +120,34 @@ export const opacity = (value,selector, duration, easing = "linear") =>
           attrs: {
             animatedAttrs: {
               top: "55%",
-              left: "50%"
-            }
+              left: "50%",
+            },
+            initialValues: {
+              top: "50%",
+            },
           },
           props: {
             duration: 200,
           },
-          position: 0
+          position: 0,
         },
         {
           incidentClass: CSSEffect,
           attrs: {
             animatedAttrs: {
               top: "50%",
-              left: "45%"
-            }
+              left: "45%",
+            },
           },
           props: {
             duration: 200,
           },
-          position: 200
+          position: 200,
         },
-        
-      ]
+      ],
     },
     {
       selector,
-      easing:"easeOutQuart",
+      easing: "easeOutQuart",
     }
   );

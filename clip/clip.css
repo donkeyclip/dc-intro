@@ -61,7 +61,7 @@
 
 .logo-text{
   position: absolute;
-  width: 0px;
+  /* width: 0px; */
   transform: translate(-50%, -50%);
   top: 50%;
   left: 52%;
